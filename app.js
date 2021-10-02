@@ -32,7 +32,13 @@ function submitHandler() {
   var qty = Number(stocksQuantity.value);
   var curr = Number(currentPrice.value);
 
-  calculateProfitAndLoss(ip, qty, curr);
+  if (ip === 0 || qty === 0 || curr === 0) {
+    showOutput("Please fill all details ");
+  } else if (ip <= 0 || qty <= 0 || curr <= 0) {
+    showOutput("no negative values ");
+  } else {
+    calculateProfitAndLoss(ip, qty, curr);
+  }
 }
 
 function showOutput(message) {
